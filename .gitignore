@@ -1,0 +1,18 @@
+# Environment variables and secrets
+.env
+.env.*
+
+# Python compiled files and cache
+__pycache__/
+*.py
+*.pyc
+*.pyd
+.venv/
+env/
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Cloudflare tunnel credentials (just in case)
+.cloudflared/

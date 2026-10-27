@@ -4,7 +4,6 @@
 
 # Python compiled files and cache
 __pycache__/
-*.py
 *.pyc
 *.pyd
 .venv/

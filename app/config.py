@@ -13,18 +13,18 @@ class Settings(BaseSettings):
     ticket_number_storage: str = "text"   # "text" => '#0042' | "int" => 42  (must match tickets.ticket_number)
 
     # --- URLs (localtunnel in dev) ---
-    app_base_url: str = "http://localhost:8000"
-    miniapp_url: str = ""                 # defaults to app_base_url
-    miniapp_origin: str = ""              # defaults to miniapp_url
-    cors_allow_localtunnel: bool = True   # allow any https://*.loca.lt origin (dev only)
+    app_base_url: str = "https://telerifa-miniapp.pelopimeme.workers.dev/"
+    miniapp_url: str = "https://telerifa-miniapp.pelopimeme.workers.dev/"                 # defaults to app_base_url
+    miniapp_origin: str = "https://telerifa-miniapp.pelopimeme.workers.dev/"              # defaults to miniapp_url
+    cors_allow_localtunnel: bool = False   # allow any https://*.loca.lt origin (dev only)
     miniapp_dist: str = "../telerifa-miniapp/dist"
 
     # --- Telegram ---
-    telegram_bot_token: str = ""
+    telegram_bot_token: str = "8448043614:AAHXBwnrIqEPkrFK8JNcIER0a2S08U1Ngcc"
     telegram_channel: str = "@telerifa"
     bot_username: str = "TeleRifa_bot"
     miniapp_short_name: str = "app"
-    admin_chat_id: int = 0                # your PERSONAL Telegram user id: only this id may press Aprobar/Rechazar
+    admin_chat_id: int = "7110223926"                # your PERSONAL Telegram user id: only this id may press Aprobar/Rechazar
     admin_token: str = ""                 # protects /api/admin/*
     announce_full_handle: bool = True
 
@@ -32,8 +32,8 @@ class Settings(BaseSettings):
     ticket_price_usd: Decimal = Decimal("1.00")
     usd_ves_rate: Decimal | None = None   # fallback when BCV is unreachable and the DB has no rate yet
     pago_movil_bank: str = "0102"
-    pago_movil_id: str = ""
-    pago_movil_phone: str = ""
+    pago_movil_id: str = "17787691"
+    pago_movil_phone: str = "04264847574"
     max_tickets_per_purchase: int = 100
     pot_percent: Decimal = Decimal("80")  # internal only - never shown to users
     rate_grace_minutes: int = 120         # a quote made with the previous rate stays valid this long after a rate change

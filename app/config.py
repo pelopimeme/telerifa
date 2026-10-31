@@ -1,3 +1,8 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 """Central configuration (env / .env) - Pago Móvil + BCV edition."""
 from decimal import Decimal
 

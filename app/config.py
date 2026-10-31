@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     # --- Existing PostgreSQL database ---
-    database_url: str = "postgresql://tele_user:CHANGE_ME@localhost:5432/tele_rifa"
+    database_url: str = os.getenv("DATABASE_URL", "")
     ticket_number_storage: str = "text"   # "text" => '#0042' | "int" => 42  (must match tickets.ticket_number)
 
     # --- URLs (localtunnel in dev) ---
@@ -20,11 +20,11 @@ class Settings(BaseSettings):
     miniapp_dist: str = "../telerifa-miniapp/dist"
 
     # --- Telegram ---
-    telegram_bot_token: str = "8448043614:AAHXBwnrIqEPkrFK8JNcIER0a2S08U1Ngcc"
+    telegram_bot_token: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
     telegram_channel: str = "@telerifa"
     bot_username: str = "TeleRifa_bot"
     miniapp_short_name: str = "app"
-    admin_chat_id: int = "7110223926"                # your PERSONAL Telegram user id: only this id may press Aprobar/Rechazar
+    admin_chat_id: int = int(os.getenv("ADMIN_TELEGRAM_ID", "0"))
     admin_token: str = ""                 # protects /api/admin/*
     announce_full_handle: bool = True
 
@@ -32,8 +32,8 @@ class Settings(BaseSettings):
     ticket_price_usd: Decimal = Decimal("1.00")
     usd_ves_rate: Decimal | None = None   # fallback when BCV is unreachable and the DB has no rate yet
     pago_movil_bank: str = "0102"
-    pago_movil_id: str = "17787691"
-    pago_movil_phone: str = "04264847574"
+    pago_movil_id: str = os.getenv("PAGO_MOVIL_ID", "")
+    pago_movil_phone: str = os.getenv("PAGO_MOVIL_PHONE", "")
     max_tickets_per_purchase: int = 100
     pot_percent: Decimal = Decimal("80")  # internal only - never shown to users
     rate_grace_minutes: int = 120         # a quote made with the previous rate stays valid this long after a rate change
